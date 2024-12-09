@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dccn5bb664luo"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_s0tx4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2nmnv"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_s0tx4")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_2nmnv")
+
+[node name="PlayerPlaceholderModel" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.97988, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+omni_range = 12.6

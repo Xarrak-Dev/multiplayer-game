@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwavh2p3uavsn"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_6pmxl"]
+[ext_resource type="PackedScene" uid="uid://dccn5bb664luo" path="res://player.tscn" id="1_rdwx0"]
+[ext_resource type="PackedScene" uid="uid://ovjt4o58xxsp" path="res://box.tscn" id="2_t4itx"]
+[ext_resource type="Script" path="res://players.gd" id="4_sk02s"]
+
+[node name="world" type="Node3D"]
+script = ExtResource("1_6pmxl")
+
+[node name="Box" parent="." instance=ExtResource("2_t4itx")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 19, 0)
+light_energy = 0.03
+
+[node name="players" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 19, 0)
+script = ExtResource("4_sk02s")
+
+[node name="Player" parent="." instance=ExtResource("1_rdwx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926144, 1.66206, 0.0978606)

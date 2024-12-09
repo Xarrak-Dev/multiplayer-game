@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ovjt4o58xxsp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvydm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbv7i"]
+
+[node name="Box" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+metadata/_edit_group_ = true
+
+[node name="BoxPlaceholderModel" type="CSGBox3D" parent="."]
+material = SubResource("StandardMaterial3D_dvydm")
+
+[node name="BoxCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_vbv7i")
