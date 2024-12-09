@@ -21,3 +21,12 @@ script = ExtResource("4_sk02s")
 
 [node name="Player" parent="." instance=ExtResource("1_rdwx0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926144, 1.66206, 0.0978606)
+
+[node name="Box2" parent="." instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -3.93956, 0.0538843, -8.41415)
+
+[node name="Box3" parent="." instance=ExtResource("2_t4itx")]
+transform = Transform3D(5.39997, 0, 0, 0, 5.39997, 0, 0, 0, 5.39997, -11.8172, -0.0645692, -3.98314)
+
+[node name="Box4" parent="." instance=ExtResource("2_t4itx")]
+transform = Transform3D(4.51439, 0, 0, 0, -10.6673, 0, 0, 0, 10.6643, -10.0144, -1.5, 10.0043)

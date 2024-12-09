@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 5
-var jump_speed = 5
+var jump_speed = 7
 var mouse_sensitivity = 0.002
 
 
@@ -15,6 +15,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
+	if Input.is_action_pressed("sprint"):
+		speed = 8
+	else:
+		speed = 5
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -26,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
-	MultiplayerManager.sendServerPosition.rpc_id(1, self.position)
+	MultiplayerManager.sendServerPosition.rpc_id(1, self.position, rotation.y)
 	move_and_slide()
 
 func _input(event):

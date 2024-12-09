@@ -1,7 +1,7 @@
 extends Node
 
 const port = 8080
-var serverIP = "127.0.0.1"
+var serverIP = "35.161.170.19"
 
 var unique_id = 0
 
@@ -23,13 +23,13 @@ func becomeJoin():
 	print("joining")
 
 @rpc("any_peer", "call_remote", "reliable")
-func sendServerPosition(data):
+func sendServerPosition(data, rot):
 	var id = multiplayer.get_remote_sender_id()
-	sendClientsPosition.rpc(data, id)
+	sendClientsPosition.rpc(data, id, rot)
 
 @rpc("any_peer", "call_remote", "reliable")
-func sendClientsPosition(data, id):
-	world.updatePosition(id, data)
+func sendClientsPosition(data, id, rot):
+	world.updatePosition(id, data, rot)
 
 @rpc("any_peer", "call_remote", "reliable")
 func addPlayer(id, data):
