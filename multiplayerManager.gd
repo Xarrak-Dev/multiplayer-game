@@ -7,6 +7,7 @@ var unique_id = 0
 
 var world = null
 var players = null
+var player = null
 
 
 #functions
@@ -42,3 +43,21 @@ func rmPlayer(id):
 @rpc("any_peer", "call_local", "reliable")
 func scream():
 	get_tree().root.get_node("world/AudioStreamPlayer").play()
+
+@rpc("any_peer", "call_remote", "reliable")
+func playerPickup(id):
+	pickedUp.rpc_id(id, multiplayer.get_remote_sender_id())
+
+@rpc("any_peer", "call_remote", "reliable")
+func playerDrop(id):
+	dropped.rpc_id(id, multiplayer.get_remote_sender_id())
+
+@rpc("any_peer", "call_remote", "reliable")
+func pickedUp(id):
+	player.grabbed = true
+	player.grabbedId = id
+
+@rpc("any_peer", "call_remote", "reliable")
+func dropped(id):
+	player.grabbed = false
+	player.grabbedId = 0

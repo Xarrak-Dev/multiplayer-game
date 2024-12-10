@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dccn5bb664luo"]
+[gd_scene load_steps=4 format=3 uid="uid://dccn5bb664luo"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_s0tx4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2nmnv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7h2n"]
+size = Vector3(1, 1.26965, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_s0tx4")
@@ -18,3 +21,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 omni_range = 12.6
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.881456)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134827, 0)
+shape = SubResource("BoxShape3D_t7h2n")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
