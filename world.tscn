@@ -31,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926144, 1.66206, 0.0978606)
 
 [node name="worldObjects" type="Node" parent="."]
 
-[node name="Box" parent="worldObjects" instance=ExtResource("2_t4itx")]
+[node name="Floor" parent="worldObjects" instance=ExtResource("2_t4itx")]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
 
 [node name="Box2" parent="worldObjects" instance=ExtResource("2_t4itx")]
@@ -72,6 +72,117 @@ transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -19.4874, 1
 
 [node name="Box14" parent="worldObjects" instance=ExtResource("2_t4itx")]
 transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -28.0609, 14.2374, -23.4651)
+
+[node name="Box15" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -28.0609, 14.9337, -12.3265)
+
+[node name="Box16" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -33.4894, 15.7041, -2.64665)
+
+[node name="Box17" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -39.2054, 17.2695, 4.73114)
+
+[node name="Box18" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -37.8102, 17.9124, 16.5778)
+
+[node name="Box19" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -29.7341, 14.2374, 31.4549)
+
+[node name="Box20" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -17.1284, 15.6217, 33.626)
+
+[node name="Box21" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -10.4708, 17.6533, 24.3934)
+
+[node name="Box22" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -9.00939, 17.1562, 9.6679)
+
+[node name="Box23" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -4.54786, 17.7655, -0.037787)
+
+[node name="Box24" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 5.59357, 20.0276, -6.80473)
+
+[node name="Box25" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 8.49658, 21.3193, -17.8259)
+
+[node name="Box26" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 17.3357, 22.4969, -22.5826)
+
+[node name="Box27" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 24.7463, 24.4553, -12.1373)
+
+[node name="Box28" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 20.8261, 26.2263, -3.65682)
+
+[node name="Box29" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 11.0572, 26.9092, -3.15194)
+
+[node name="Box30" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 4.21813, 28.1188, 5.05054)
+
+[node name="Box31" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 4.21813, 28.8416, 17.4286)
+
+[node name="Box32" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 4.37106, 28.8354, 30.9532)
+
+[node name="Box33" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 12.8341, 31.3164, 33.9363)
+
+[node name="Box34" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 23.3696, 32.2863, 33.5088)
+
+[node name="Box35" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 31.1659, 32.852, 24.7904)
+
+[node name="Box36" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 37.4195, 34.7521, 17.5986)
+
+[node name="Box37" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 38.7918, 36.2612, 10.1785)
+
+[node name="Box38" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 42.1654, 37.4608, 0.446428)
+
+[node name="Box39" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 41.4697, 38.0442, -11.0367)
+
+[node name="Box40" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 42.7672, 36.7915, -25.8385)
+
+[node name="Box41" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 53.3506, 36.8449, -32.8985)
+
+[node name="Box42" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 52.6612, 38.8074, -43.0424)
+
+[node name="Box43" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 45.8617, 39.9163, -51.1513)
+
+[node name="Box44" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 35.2859, 41.5495, -56.3456)
+
+[node name="Box45" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 26.3905, 42.2933, -62.3951)
+
+[node name="Box46" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 11.9719, 41.346, -60.5937)
+
+[node name="Box47" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 3.4165, 42.6662, -56.1668)
+
+[node name="Box48" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -5.61227, 45.0881, -55.4488)
+
+[node name="Box49" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -12.0527, 45.7137, -47.5096)
+
+[node name="Box50" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -16.4477, 46.7909, -37.0534)
+
+[node name="Box51" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -19.003, 48.1162, -26.6778)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_wegog")

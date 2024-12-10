@@ -62,8 +62,8 @@ func _input(event):
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	var arrowCam = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	rotate_y(-arrowCam.x * 300 * mouse_sensitivity)
-	$Camera3D.rotate_x(-arrowCam.y * 150 * mouse_sensitivity)
+	rotate_y(-arrowCam.x * 150 * mouse_sensitivity)
+	$Camera3D.rotate_x(-arrowCam.y * 75 * mouse_sensitivity)
 	$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
