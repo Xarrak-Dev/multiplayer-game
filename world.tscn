@@ -1,19 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwavh2p3uavsn"]
+[gd_scene load_steps=9 format=3 uid="uid://bwavh2p3uavsn"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_6pmxl"]
 [ext_resource type="PackedScene" uid="uid://dccn5bb664luo" path="res://player.tscn" id="1_rdwx0"]
 [ext_resource type="PackedScene" uid="uid://ovjt4o58xxsp" path="res://box.tscn" id="2_t4itx"]
 [ext_resource type="Script" path="res://players.gd" id="4_sk02s"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="5_tc6uj"]
+[ext_resource type="Script" path="res://button.gd" id="6_d4xk7"]
+[ext_resource type="AudioStream" uid="uid://dh5hgmak37da5" path="res://Scary Woman Screaming - Sound Effect (HD) [ ezmp3.cc ].mp3" id="7_wegog"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w6mk4"]
+size = Vector3(366.114, 127.604, 425.519)
 
 [node name="world" type="Node3D"]
 script = ExtResource("1_6pmxl")
 
-[node name="Box" parent="." instance=ExtResource("2_t4itx")]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 19, 0)
-light_energy = 0.03
+transform = Transform3D(0.898649, 1.91748e-08, -0.438669, 0.438669, -3.92812e-08, 0.898649, 0, -1, -4.37114e-08, -24.5106, 48.6592, 0)
+light_energy = 0.192
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.558275, -0.533143, 0.635679, 0.436515, 0.462819, 0.771527, -0.705538, 0.708207, -0.0256555, 42.1856, 48.6592, 0.232571)
+light_energy = 0.192
 
 [node name="players" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 19, 0)
@@ -22,11 +29,89 @@ script = ExtResource("4_sk02s")
 [node name="Player" parent="." instance=ExtResource("1_rdwx0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926144, 1.66206, 0.0978606)
 
-[node name="Box2" parent="." instance=ExtResource("2_t4itx")]
-transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -3.93956, 0.0538843, -8.41415)
+[node name="worldObjects" type="Node" parent="."]
 
-[node name="Box3" parent="." instance=ExtResource("2_t4itx")]
-transform = Transform3D(5.39997, 0, 0, 0, 5.39997, 0, 0, 0, 5.39997, -11.8172, -0.0645692, -3.98314)
+[node name="Box" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0)
 
-[node name="Box4" parent="." instance=ExtResource("2_t4itx")]
-transform = Transform3D(4.51439, 0, 0, 0, -10.6673, 0, 0, 0, 10.6643, -10.0144, -1.5, 10.0043)
+[node name="Box2" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 2.58518, 0.759641, -8.41415)
+
+[node name="Box3" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -7.50216, 2.29653, -8.41415)
+
+[node name="Box4" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -5.52112, 4.12649, -0.507594)
+
+[node name="Box5" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 2.58518, 5.83334, 6.64254)
+
+[node name="Box6" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 12.9168, 6.76826, 4.10789)
+
+[node name="Box7" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 12.9168, 8.67843, -7.45507)
+
+[node name="Box8" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 17.3777, 6.76826, -16.6369)
+
+[node name="Box9" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 12.9168, 7.98703, -26.1954)
+
+[node name="Box10" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 12.9168, 10.3492, -35.0129)
+
+[node name="Box11" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, 1.18571, 12.1877, -36.8378)
+
+[node name="Box12" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -9.21673, 13.5915, -40.6838)
+
+[node name="Box13" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -19.4874, 15.2578, -36.4178)
+
+[node name="Box14" parent="worldObjects" instance=ExtResource("2_t4itx")]
+transform = Transform3D(3.16152, 0, 0, 0, 1.53752, 0, 0, 0, 2.93123, -28.0609, 14.2374, -23.4651)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wegog")
+volume_db = -15.928
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("5_tc6uj")]
+offset_top = -648.0
+offset_right = 534.0
+joystick_mode = 1
+visibility_mode = 2
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_forward"
+action_down = "move_back"
+
+[node name="Virtual Joystick2" parent="CanvasLayer" instance=ExtResource("5_tc6uj")]
+offset_left = 543.0
+offset_top = -643.0
+offset_right = 990.0
+offset_bottom = -11.0
+joystick_mode = 1
+visibility_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 1014.0
+offset_top = 277.0
+offset_right = 1123.0
+offset_bottom = 385.0
+text = "Jump"
+script = ExtResource("6_d4xk7")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0804, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.746, -59.4696, 5.68326)
+shape = SubResource("BoxShape3D_w6mk4")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

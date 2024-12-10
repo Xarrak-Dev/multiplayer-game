@@ -19,7 +19,8 @@ func _physics_process(delta: float) -> void:
 		speed = 8
 	else:
 		speed = 5
-
+	if Input.is_action_just_pressed("scream"):
+		MultiplayerManager.scream.rpc()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
@@ -38,6 +39,10 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+	var arrowCam = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	rotate_y(-arrowCam.x * 300 * mouse_sensitivity)
+	$Camera3D.rotate_x(-arrowCam.y * 150 * mouse_sensitivity)
+	$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event.is_action_pressed("click"):

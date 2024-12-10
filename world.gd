@@ -16,3 +16,13 @@ func updatePosition(id, data, rot):
 		if child.name == str(id):
 			child.global_position = data
 			child.global_rotation.y = rot
+
+
+func _on_button_pressed() -> void:
+	Input.action_press("jump")
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	print(body)
+	if body == $Player:
+		$Player.position = Vector3(0, 10, 0)

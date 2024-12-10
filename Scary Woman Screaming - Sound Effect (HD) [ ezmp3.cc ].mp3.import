@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh5hgmak37da5"
+path="res://.godot/imported/Scary Woman Screaming - Sound Effect (HD) [ ezmp3.cc ].mp3-1077956d9e56c3b841f85bab6cc10e9b.mp3str"
+
+[deps]
+
+source_file="res://Scary Woman Screaming - Sound Effect (HD) [ ezmp3.cc ].mp3"
+dest_files=["res://.godot/imported/Scary Woman Screaming - Sound Effect (HD) [ ezmp3.cc ].mp3-1077956d9e56c3b841f85bab6cc10e9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

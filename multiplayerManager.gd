@@ -38,3 +38,7 @@ func addPlayer(id, data):
 @rpc("any_peer", "call_remote", "reliable")
 func rmPlayer(id):
 	players.rmPlayer(id)
+
+@rpc("any_peer", "call_local", "reliable")
+func scream():
+	get_tree().root.get_node("world/AudioStreamPlayer").play()
