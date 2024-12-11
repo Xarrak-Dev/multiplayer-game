@@ -28,14 +28,6 @@ func _physics_process(delta: float) -> void:
 			speed = 5
 		if Input.is_action_just_pressed("scream"):
 			MultiplayerManager.scream.rpc()
-		if Input.is_action_just_pressed("click"):
-			if playerPicked != null && pickable && !pickedOneUp:
-				pickable = false
-				pickedOneUp = true
-				MultiplayerManager.playerPickup.rpc_id(1, int(str(playerPicked.name)))
-			elif pickedOneUp && playerPicked != null:
-				pickedOneUp = false
-				MultiplayerManager.playerDrop.rpc_id(1, int(str(playerPicked.name)))
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
@@ -49,11 +41,12 @@ func _physics_process(delta: float) -> void:
 		MultiplayerManager.sendServerPosition.rpc_id(1, self.position, rotation.y)
 		move_and_slide()
 	else:
-		var dude
-		for child in $"../players".get_children():
-			if grabbedId == int(str(child.name)):
-				dude = child
-		position = Vector3(dude.global_position.x, (dude.global_position.y + 3), dude.global_position.z)
+		pass
+		#var dude
+		#for child in $"../players".get_children():
+			#if grabbedId == int(str(child.name)):
+		#		dude = child
+		#position = Vector3(dude.global_position.x, (dude.global_position.y + 3), dude.global_position.z)
 		MultiplayerManager.sendServerPosition.rpc_id(1, self.position, rotation.y)
 
 func _input(event):
@@ -70,10 +63,22 @@ func _input(event):
 	if event.is_action_pressed("click"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if playerPicked != null && pickable && !pickedOneUp:
+				print(pickable)
+				pickable = false
+				pickedOneUp = true
+				MultiplayerManager.playerPickup.rpc_id(1, int(str(playerPicked.name)))
+		elif pickedOneUp && playerPicked != null && !pickable:
+			print(pickable)
+			print("dropping?")
+			pickedOneUp = false
+			MultiplayerManager.playerDrop.rpc_id(1, int(str(playerPicked.name)))
+		print(pickedOneUp)
+		print(playerPicked)
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.get_parent() == $"../players":
+	if body.get_parent() == $"../players" && !pickedOneUp:
 		pickable = true
 		playerPicked = body
 

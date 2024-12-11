@@ -61,3 +61,13 @@ func pickedUp(id):
 func dropped(id):
 	player.grabbed = false
 	player.grabbedId = 0
+
+@rpc("any_peer", "call_remote", "reliable")
+func moveWithMaster(data):
+	get_tree().root.get_node("world/Player").position = data
+
+@rpc("any_peer", "call_remote", "reliable")
+func stolen(id):
+	if unique_id != id:
+		player.playerPicked = null
+		player.pickedOneUp = false
