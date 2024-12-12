@@ -10,18 +10,28 @@ var playerPicked = null
 var pickedOneUp = false
 var grabbed = false
 var grabbedId
+var lastPos
+var lastRot
+var inAir = false
 
 func _ready() -> void:
 	MultiplayerManager.player = self
 
 func _physics_process(delta: float) -> void:
+	if lastPos != position || lastRot != rotation.y:
+		MultiplayerManager.sendServerPosition.rpc_id(1, self.position, rotation.y)
+	lastPos = position
+	lastRot = rotation.y
 	if grabbed != true:
 		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		# Handle jump.
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			velocity.y = jump_speed
+		if is_on_floor():
+			if Input.is_action_just_pressed("jump"): 
+				velocity.y = jump_speed
+			if inAir:
+				inAir = false
 		if Input.is_action_pressed("sprint"):
 			speed = 8
 		else:
@@ -32,22 +42,13 @@ func _physics_process(delta: float) -> void:
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if direction:
+		if direction && !inAir:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
-		else:
+		elif !inAir:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.z = move_toward(velocity.z, 0, speed)
-		MultiplayerManager.sendServerPosition.rpc_id(1, self.position, rotation.y)
 		move_and_slide()
-	else:
-		pass
-		#var dude
-		#for child in $"../players".get_children():
-			#if grabbedId == int(str(child.name)):
-		#		dude = child
-		#position = Vector3(dude.global_position.x, (dude.global_position.y + 3), dude.global_position.z)
-		MultiplayerManager.sendServerPosition.rpc_id(1, self.position, rotation.y)
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -72,7 +73,7 @@ func _input(event):
 			print(pickable)
 			print("dropping?")
 			pickedOneUp = false
-			MultiplayerManager.playerDrop.rpc_id(1, int(str(playerPicked.name)))
+			MultiplayerManager.playerDrop.rpc_id(1, int(str(playerPicked.name)), rotation.y)
 		print(pickedOneUp)
 		print(playerPicked)
 
@@ -85,3 +86,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	pickable = false
+
+func throw(rot):
+	velocity = Vector3(0, 0, 1).rotated(Vector3(0,1,0), rot) * -100
+	inAir = true

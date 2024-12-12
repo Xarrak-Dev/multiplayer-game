@@ -49,8 +49,8 @@ func playerPickup(id):
 	pickedUp.rpc_id(id, multiplayer.get_remote_sender_id())
 
 @rpc("any_peer", "call_remote", "reliable")
-func playerDrop(id):
-	dropped.rpc_id(id, multiplayer.get_remote_sender_id())
+func playerDrop(id, rot):
+	pass
 
 @rpc("any_peer", "call_remote", "reliable")
 func pickedUp(id):
@@ -58,9 +58,10 @@ func pickedUp(id):
 	player.grabbedId = id
 
 @rpc("any_peer", "call_remote", "reliable")
-func dropped(id):
+func dropped(id, rot):
 	player.grabbed = false
 	player.grabbedId = 0
+	player.throw(rot)
 
 @rpc("any_peer", "call_remote", "reliable")
 func moveWithMaster(data):
