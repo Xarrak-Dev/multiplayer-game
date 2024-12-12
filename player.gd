@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 const otherplayerscene = preload("res://otherplayer.tscn")
+@onready var staminaBar = $"../CanvasLayer/ProgressBar"
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 5
 var jump_speed = 7
@@ -13,6 +14,7 @@ var grabbedId
 var lastPos
 var lastRot
 var inAir = false
+var stamina = 100
 
 func _ready() -> void:
 	MultiplayerManager.player = self
@@ -33,9 +35,15 @@ func _physics_process(delta: float) -> void:
 			if inAir:
 				inAir = false
 		if Input.is_action_pressed("sprint"):
-			speed = 8
+			if stamina >= 5:
+				speed = 20
+				stamina -= 5
+			else:
+				speed = 8
 		else:
-			speed = 5
+			speed = 8
+			if stamina <= 100:
+				stamina += 0.1
 		if Input.is_action_just_pressed("scream"):
 			MultiplayerManager.scream.rpc()
 		# Get the input direction and handle the movement/deceleration.
@@ -49,6 +57,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.z = move_toward(velocity.z, 0, speed)
 		move_and_slide()
+		staminaBar.value = stamina
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
