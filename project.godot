@@ -11,13 +11,21 @@ config_version=5
 [application]
 
 config/name="multiplayer game"
-run/main_scene="res://world.tscn"
+run/main_scene="res://scenes/main/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://resources/sprites/icon.svg"
 
 [autoload]
 
-MultiplayerManager="*res://multiplayerManager.gd"
+MultiplayerManager="*res://scripts/gameScene/multiplayerManager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 
 [input]
 

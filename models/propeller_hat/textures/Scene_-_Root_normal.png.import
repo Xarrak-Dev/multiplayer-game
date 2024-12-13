@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpusxf7voo71k"
-path.s3tc="res://.godot/imported/Scene_-_Root_normal.png-ef7adf82760b7751c1b7cdc351d77c68.s3tc.ctex"
-path.etc2="res://.godot/imported/Scene_-_Root_normal.png-ef7adf82760b7751c1b7cdc351d77c68.etc2.ctex"
+path.s3tc="res://.godot/imported/Scene_-_Root_normal.png-4bf9f43397d97b230bcd33b9c1bb8342.s3tc.ctex"
+path.etc2="res://.godot/imported/Scene_-_Root_normal.png-4bf9f43397d97b230bcd33b9c1bb8342.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://propeller_hat/textures/Scene_-_Root_normal.png"
-dest_files=["res://.godot/imported/Scene_-_Root_normal.png-ef7adf82760b7751c1b7cdc351d77c68.s3tc.ctex", "res://.godot/imported/Scene_-_Root_normal.png-ef7adf82760b7751c1b7cdc351d77c68.etc2.ctex"]
+source_file="res://models/propeller_hat/textures/Scene_-_Root_normal.png"
+dest_files=["res://.godot/imported/Scene_-_Root_normal.png-4bf9f43397d97b230bcd33b9c1bb8342.s3tc.ctex", "res://.godot/imported/Scene_-_Root_normal.png-4bf9f43397d97b230bcd33b9c1bb8342.etc2.ctex"]
 
 [params]
 

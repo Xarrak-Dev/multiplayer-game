@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7fdodi51upk4"]
+
+[ext_resource type="Script" path="res://scripts/menuScene/menu.gd" id="1_rdtfi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cxjhd"]
+font_size = 100
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rdtfi")
+
+[node name="HostButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 450.0
+offset_right = 1160.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 600.0
+offset_right = 1160.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 50
+text = "Join"
+
+[node name="IPLabel" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 612.0
+offset_right = 1500.0
+offset_bottom = 687.0
+theme_override_font_sizes/font_size = 40
+text = "35.161.170.19"
+placeholder_text = "IP Address"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 130.0
+offset_right = 1391.0
+offset_bottom = 267.0
+text = "Multiplayer Game"
+label_settings = SubResource("LabelSettings_cxjhd")
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 625.0
+offset_right = 720.0
+offset_bottom = 675.0
+theme_override_colors/font_color = Color(0.280038, 0.495665, 1, 1)
+theme_override_font_sizes/font_size = 35
+text = "Start Server"
+uri = "https://7polhyed88.execute-api.us-west-2.amazonaws.com/test/start-server"
+
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="text_changed" from="IPLabel" to="." method="_on_ip_label_text_changed"]

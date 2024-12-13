@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://pkl4bsj7w35s"]
 
-[ext_resource type="PackedScene" uid="uid://benl7knxjekvo" path="res://propeller_hat/scene.gltf" id="1_hmnhj"]
+[ext_resource type="PackedScene" uid="uid://benl7knxjekvo" path="res://models/propeller_hat/scene.gltf" id="1_hmnhj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2nmnv"]
 

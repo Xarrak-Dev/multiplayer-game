@@ -1,6 +1,6 @@
 extends Node
 
-const port = 8080
+var port = 8080
 var serverIP = "35.161.170.19"
 
 var unique_id = 0
@@ -12,6 +12,9 @@ var player = null
 
 #functions
 
+func _ready():
+	multiplayer.connected_to_server.connect(connected)
+
 #sets up a client
 func becomeJoin():
 	var clientPeer = ENetMultiplayerPeer.new()
@@ -22,6 +25,9 @@ func becomeJoin():
 	unique_id = clientPeer.get_unique_id()
 	
 	print("joining")
+
+func connected():
+	get_tree().change_scene_to_file("res://scenes/main/world.tscn")
 
 @rpc("any_peer", "call_remote", "reliable")
 func sendServerPosition(data, rot):
@@ -49,7 +55,7 @@ func playerPickup(id):
 	pickedUp.rpc_id(id, multiplayer.get_remote_sender_id())
 
 @rpc("any_peer", "call_remote", "reliable")
-func playerDrop(id, rot):
+func playerDrop(_id, _rot):
 	pass
 
 @rpc("any_peer", "call_remote", "reliable")
@@ -58,7 +64,7 @@ func pickedUp(id):
 	player.grabbedId = id
 
 @rpc("any_peer", "call_remote", "reliable")
-func dropped(id, rot):
+func dropped(_id, rot):
 	player.grabbed = false
 	player.grabbedId = 0
 	player.throw(rot)

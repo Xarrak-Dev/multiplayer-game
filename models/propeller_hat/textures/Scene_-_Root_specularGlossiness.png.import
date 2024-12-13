@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl554dsfxdx34"
-path="res://.godot/imported/Scene_-_Root_diffuse.png-d65b86316ff326ce528d52ae6aa31495.ctex"
+uid="uid://c6ot7rpbjpl30"
+path="res://.godot/imported/Scene_-_Root_specularGlossiness.png-a01f838f937a74c88f283e36f7b62656.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://propeller_hat/textures/Scene_-_Root_diffuse.png"
-dest_files=["res://.godot/imported/Scene_-_Root_diffuse.png-d65b86316ff326ce528d52ae6aa31495.ctex"]
+source_file="res://models/propeller_hat/textures/Scene_-_Root_specularGlossiness.png"
+dest_files=["res://.godot/imported/Scene_-_Root_specularGlossiness.png-a01f838f937a74c88f283e36f7b62656.ctex"]
 
 [params]
 

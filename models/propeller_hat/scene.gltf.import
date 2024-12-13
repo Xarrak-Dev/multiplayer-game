@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://benl7knxjekvo"
-path="res://.godot/imported/scene.gltf-c2f9e795aa6051cd0aa139b875d2d8f6.scn"
+path="res://.godot/imported/scene.gltf-fc441c11897b3d8206075fe9f9db3e7a.scn"
 
 [deps]
 
-source_file="res://propeller_hat/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-c2f9e795aa6051cd0aa139b875d2d8f6.scn"]
+source_file="res://models/propeller_hat/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-fc441c11897b3d8206075fe9f9db3e7a.scn"]
 
 [params]
 

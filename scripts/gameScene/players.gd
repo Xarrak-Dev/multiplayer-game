@@ -1,6 +1,6 @@
 extends Node3D
 
-var playerScene = preload("res://otherplayer.tscn")
+var playerScene = preload("res://scenes/objects/otherplayer.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

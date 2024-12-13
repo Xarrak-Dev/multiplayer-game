@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
-const otherplayerscene = preload("res://otherplayer.tscn")
-@onready var staminaBar = $"../CanvasLayer/ProgressBar"
+const otherplayerscene = preload("res://scenes/objects/otherplayer.tscn")
+@onready var pauseMenu = $"../Menu"
+@onready var staminaBar = $"../bars/ProgressBar"
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 5
 var jump_speed = 7
@@ -18,6 +19,7 @@ var stamina = 100
 
 func _ready() -> void:
 	MultiplayerManager.player = self
+	pauseMenu.visible = false
 
 func _physics_process(delta: float) -> void:
 	if lastPos != position || lastRot != rotation.y:
@@ -30,9 +32,12 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta
 		# Handle jump.
 		if is_on_floor():
-			if Input.is_action_just_pressed("jump"): 
+			if Input.is_action_just_pressed("jump") && stamina > 10: 
 				velocity.y = jump_speed
-				stamina -= 1
+				if pickedOneUp:
+					stamina -= 10
+				else:
+					stamina -= 5
 			if inAir:
 				inAir = false
 		if Input.is_action_pressed("sprint"):
@@ -51,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if direction && !inAir:
+		if direction && !inAir && !pauseMenu.visible:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		elif !inAir:
@@ -76,9 +81,8 @@ func _input(event):
 	$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		pauseMenu.visible = true
 	if event.is_action_pressed("click"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		if playerPicked != null && pickable && !pickedOneUp && stamina >= 10:
 				print(pickable)
 				pickable = false
@@ -99,7 +103,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	pickable = false
+	if body.get_parent() == $"../players":
+		pickable = false
 
 func throw(rot):
 	if !inAir:
