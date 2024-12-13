@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			if Input.is_action_just_pressed("jump"): 
 				velocity.y = jump_speed
+				stamina -= 1
 			if inAir:
 				inAir = false
 		if Input.is_action_pressed("sprint"):
@@ -56,6 +57,11 @@ func _physics_process(delta: float) -> void:
 		elif !inAir:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.z = move_toward(velocity.z, 0, speed)
+		if pickedOneUp:
+			stamina -= 0.2
+			if stamina <= 3:
+				pickedOneUp = false
+				MultiplayerManager.playerDrop.rpc_id(1, int(str(playerPicked.name)), rotation.y)
 		move_and_slide()
 		staminaBar.value = stamina
 
@@ -73,18 +79,17 @@ func _input(event):
 	if event.is_action_pressed("click"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		if playerPicked != null && pickable && !pickedOneUp:
+		if playerPicked != null && pickable && !pickedOneUp && stamina >= 10:
 				print(pickable)
 				pickable = false
 				pickedOneUp = true
 				MultiplayerManager.playerPickup.rpc_id(1, int(str(playerPicked.name)))
+				MultiplayerManager.sendServerPosition.rpc_id(1, self.position, rotation.y)
 		elif pickedOneUp && playerPicked != null && !pickable:
 			print(pickable)
 			print("dropping?")
 			pickedOneUp = false
 			MultiplayerManager.playerDrop.rpc_id(1, int(str(playerPicked.name)), rotation.y)
-		print(pickedOneUp)
-		print(playerPicked)
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
@@ -97,5 +102,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	pickable = false
 
 func throw(rot):
-	velocity = Vector3(0, 0, 1).rotated(Vector3(0,1,0), rot) * -100
-	inAir = true
+	if !inAir:
+		velocity = Vector3(0, 0, 1).rotated(Vector3(0,1,0), rot) * -100
+		inAir = true

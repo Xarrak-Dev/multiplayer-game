@@ -9,6 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func addPlayer(id, data):
+	MultiplayerManager.sendServerPosition.rpc_id(1, self.position, rotation.y)
 	if id != MultiplayerManager.unique_id:
 		var p = playerScene.instantiate()
 		add_child(p)
